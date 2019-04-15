@@ -1,0 +1,14 @@
+require 'shellwords'
+
+task default: %i[rails]
+
+task rails: ['rails:tests']
+
+namespace :rails do
+  task tests: [:test_rails]
+
+  task :test_rails do
+    rails_tests_file = File.join(__dir__, 'rails/tc_rails.rb')
+    ruby Shellwords.escape(rails_tests_file)
+  end
+end
