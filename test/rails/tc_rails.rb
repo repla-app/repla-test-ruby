@@ -5,14 +5,15 @@ require_relative '../lib/test_setup'
 
 RAILS_DIRECTORY = File.expand_path(File.join(__dir__,
                                              '../../repla-test-rails-blog/'))
-RAILS_COMMAND = File.join(RAILS_DIRECTORY, '../bin/rails')
-
+RAILS_COMMAND = 'bin/rails server'.freeze
 RAILS_HTML_TITLE = 'Ruby on Rails'.freeze
 
 # Test server
 class TestServer < Minitest::Test
   def setup
-    `#{SERVER_BUNDLE_COMMAND} "#{RAILS_COMMAND}"`
+    Dir.chdir(RAILS_DIRECTORY) do
+      `#{SERVER_BUNDLE_COMMAND} "#{RAILS_COMMAND}"`
+    end
     window_id = nil
     Repla::Test.block_until do
       window_id = Repla::Test::Helper.window_id
