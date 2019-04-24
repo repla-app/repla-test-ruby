@@ -4,7 +4,7 @@ require 'minitest/autorun'
 require_relative '../lib/test_setup'
 
 RAILS_DIRECTORY = File.expand_path(File.join(__dir__,
-                                             '../../repla-test-rails-blog/'))
+                                             '../../repla-test-rails/'))
 RAILS_COMMAND = 'bin/rails server'.freeze
 RAILS_HTML_TITLE = 'Ruby on Rails'.freeze
 
