@@ -1,10 +1,10 @@
 #!/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby
 
 require 'minitest/autorun'
-require_relative '../lib/test_setup'
+require_relative 'lib/test_setup'
 
 RAILS_DIRECTORY = File.expand_path(
-  File.join(__dir__, '../../external/repla-test-rails/')
+  File.join(__dir__, '../external/repla-test-rails/')
 )
 RAILS_COMMAND = 'bin/rails server'.freeze
 RAILS_HTML_TITLE = 'Ruby on Rails'.freeze
