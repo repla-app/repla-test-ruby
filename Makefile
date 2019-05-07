@@ -4,10 +4,10 @@ ci: lint
 ac: autocorrect
 
 lint:
-	rubocop
+	git ls-files '*.rb' ':(exclude)test/bundle' -z | xargs -0 rubocop
 
 autocorrect:
-	rubocop -a
+	git ls-files '*.rb' ':(exclude)test/bundle' -z | xargs -0 rubocop -a
 
 test:
 	./test/run_tests.sh
