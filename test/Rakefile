@@ -1,14 +1,19 @@
 require 'shellwords'
 
-task default: %i[rails]
+task default: %i[ruby]
 
-task rails: ['rails:tests']
+task ruby: ['ruby:tests']
 
-namespace :rails do
-  task tests: [:test_rails]
+namespace :ruby do
+  task tests: [:test_rails, :test_sinatra]
 
   task :test_rails do
-    rails_tests_file = File.join(__dir__, 'rails/tc_rails.rb')
+    rails_tests_file = File.join(__dir__, 'tc_rails.rb')
     ruby Shellwords.escape(rails_tests_file)
+  end
+
+  task :test_sinatra do
+    sinatra_tests_file = File.join(__dir__, 'tc_sinatra.rb')
+    ruby Shellwords.escape(sinatra_tests_file)
   end
 end

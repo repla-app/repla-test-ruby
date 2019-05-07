@@ -1,19 +1,19 @@
 #!/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby
 
 require 'minitest/autorun'
-require_relative '../lib/test_setup'
-
-RAILS_DIRECTORY = File.expand_path(
-  File.join(__dir__, '../../external/repla-test-rails/')
-)
-RAILS_COMMAND = 'bin/rails server'.freeze
-RAILS_HTML_TITLE = 'Ruby on Rails'.freeze
+require_relative 'lib/test_setup'
 
 # Test server
 class TestServer < Minitest::Test
+  EXTERNAL_DIRECTORY = File.expand_path(
+    File.join(__dir__, '../external/repla-test-rails/')
+  )
+  EXTERNAL_COMMAND = 'bin/rails server'.freeze
+  HTML_TITLE = 'Ruby on Rails'.freeze
+
   def setup
-    Dir.chdir(RAILS_DIRECTORY) do
-      `#{SERVER_BUNDLE_COMMAND} "#{RAILS_COMMAND}"`
+    Dir.chdir(EXTERNAL_DIRECTORY) do
+      `#{SERVER_BUNDLE_COMMAND} "#{EXTERNAL_COMMAND}"`
     end
     window_id = nil
     Repla::Test.block_until do
@@ -33,8 +33,8 @@ class TestServer < Minitest::Test
     result = nil
     Repla::Test.block_until do
       result = @window.do_javascript(javascript)
-      result == RAILS_HTML_TITLE
+      result == HTML_TITLE
     end
-    assert_equal(RAILS_HTML_TITLE, result)
+    assert_equal(HTML_TITLE, result)
   end
 end
