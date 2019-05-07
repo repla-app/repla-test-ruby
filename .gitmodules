@@ -1,3 +1,0 @@
-[submodule "exclude/repla-test-rails"]
-	path = exclude/repla-test-rails
-	url = https://github.com/repla-app/repla-test-rails.git
