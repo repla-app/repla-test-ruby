@@ -6,10 +6,10 @@ require_relative 'lib/test_setup'
 # Test server
 class TestServer < Minitest::Test
   EXTERNAL_DIRECTORY = File.expand_path(
-    File.join(__dir__, '../external/repla-test-rails/')
+    File.join(__dir__, '../external/repla-test-sinatra/')
   )
-  EXTERNAL_COMMAND = 'bin/rails server'.freeze
-  HTML_TITLE = 'Ruby on Rails'.freeze
+  EXTERNAL_COMMAND = 'bundle exec ruby myapp.rb'.freeze
+  HTML_BODY = 'Hello world!'.freeze
 
   def setup
     Dir.chdir(EXTERNAL_DIRECTORY) do
@@ -29,12 +29,12 @@ class TestServer < Minitest::Test
   end
 
   def test_rails
-    javascript = File.read(Repla::Test::TITLE_JAVASCRIPT_FILE)
+    javascript = File.read(Repla::Test::BODY_JAVASCRIPT_FILE)
     result = nil
     Repla::Test.block_until do
       result = @window.do_javascript(javascript)
-      result == HTML_TITLE
+      result == HTML_BODY
     end
-    assert_equal(HTML_TITLE, result)
+    assert_equal(HTML_BODY, result)
   end
 end
