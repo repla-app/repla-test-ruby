@@ -1,0 +1,3 @@
+[submodule "external/repla-test-rails"]
+	path = external/repla-test-rails
+	url = https://github.com/repla-app/repla-test-rails.git
