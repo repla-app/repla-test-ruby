@@ -5,7 +5,7 @@ task default: %i[ruby]
 task ruby: ['ruby:tests']
 
 namespace :ruby do
-  task tests: [:test_rails, :test_sinatra]
+  task tests: %i[test_rails test_sinatra]
 
   task :test_rails do
     rails_tests_file = File.join(__dir__, 'tc_rails.rb')
