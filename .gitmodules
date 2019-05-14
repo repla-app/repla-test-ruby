@@ -3,4 +3,4 @@
 	url = https://github.com/repla-app/repla-test-rails.git
 [submodule "external/repla-test-sinatra"]
 	path = external/repla-test-sinatra
-	url = https://github.com/robenkleene/repla-test-sinatra.git
+	url = https://github.com/repla-app/repla-test-sinatra.git
