@@ -25,4 +25,7 @@ AllCops:
     - '**/node_modules/**/*'
     - '**/vendor/**/*'
     - '**/bundle/**/*'
-
+Metrics/LineLength:
+  Exclude:
+    - 'test/tc_rails.rb'
+    - 'test/tc_sinatra.rb'
