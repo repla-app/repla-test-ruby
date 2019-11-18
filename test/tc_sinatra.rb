@@ -28,7 +28,7 @@ class TestServer < Minitest::Test
     @window.close
   end
 
-  def test_rails
+  def test_sinatra
     javascript = File.read(Repla::Test::BODY_JAVASCRIPT_FILE)
     result = nil
     Repla::Test.block_until do
