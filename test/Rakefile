@@ -5,7 +5,7 @@ task default: %i[ruby]
 task ruby: ['ruby:tests']
 
 namespace :ruby do
-  task tests: %i[test_rails test_sinatra]
+  task tests: %i[test_rails test_sinatra test_jekyll]
 
   task :test_rails do
     rails_tests_file = File.join(__dir__, 'tc_rails.rb')
@@ -15,5 +15,10 @@ namespace :ruby do
   task :test_sinatra do
     sinatra_tests_file = File.join(__dir__, 'tc_sinatra.rb')
     ruby Shellwords.escape(sinatra_tests_file)
+  end
+
+  task :test_jekyll do
+    jekyll_tests_file = File.join(__dir__, 'tc_jekyll.rb')
+    ruby Shellwords.escape(jekyll_tests_file)
   end
 end
