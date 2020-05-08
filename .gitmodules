@@ -4,3 +4,9 @@
 [submodule "external/repla-test-sinatra"]
 	path = external/repla-test-sinatra
 	url = https://github.com/repla-app/repla-test-sinatra.git
+[submodule "external/repla-test-jekyll"]
+	path = external/repla-test-jekyll
+	url = git@github.com:repla-app/repla-test-jekyll.git
+[submodule "external/repla-test-jekyll-architect"]
+	path = external/repla-test-jekyll-architect
+	url = git@github.com:repla-app/repla-test-jekyll-architect.git
